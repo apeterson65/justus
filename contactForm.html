@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Enter Information</h1>
+    <p>Enter the following information. When you press the Display button, the data you entered will be displayed in a pop-up window.</p>
+    <form name="form1">
+        <section name="fullName">
+            <label>Enter First Name</label>
+            <input type="text" name="fName" id="fName">
+            <label>Enter Middle Name</label>
+            <input type="text" name="mName" id="mName">
+            <label>Enter Last Name</label>
+            <input type="text" name="lName" id="lName">
+        </section>
+        <section>
+            <label>Age</label>
+            <input type="number" name="age" max="130">
+        </section>
+        <section>
+            <label>Enter Your Birthdate:</label>
+            <input type="date" placeholder="mm/dd/yyyy" name="bDate">
+        </section>
+        <section>
+            <label> Enter Your Gender:</label> Male
+            <input type="radio" name="gender" value="male"> Female
+            <input type="radio" name="gender" value="female">
+        </section>
+
+        <p><input TYPE="BUTTON" VALUE="Display" onClick="display();"></p>
+    </form>
+
+    <script LANGUAGE="JavaScript" type="text/javascript">
+        let curDate = new Date();
+
+        /*   function gender(gender) {
+               if document.form1.gender.value = "male"
+               return (Male);
+               else
+                   return (Female);
+           }*/
+
+
+
+
+
+        function display() {
+            DispWin = window.open('', 'NewWin', 'toolbar=no,status=no,width=300,height=400')
+            message = "Welcome " + document.form1.fName.value + " I show your full name is:<br>"
+            message += document.form1.fName.value + " " + document.form1.mName.value + " " + document.form1.lName.value
+            message += "<br>We show your birthdate is " + document.form1.bDate.value + "."
+            message += "<br>Today is  " + (curDate.getMonth() + 1) + "/" + curDate.getDay() + "/" + curDate.getFullYear()
+            message += "<br>You have indicated that you are " + document.form1.age.value + " years old"
+            message += "<br> We see that you have selected " + document.form1.gender.value + " as your gender.";
+
+            message += "<p><button  onclick='window.close()' > Close </button></p>";
+            DispWin.document.write(message);
+
+        }
+    </script>
+</body>
+
+</html>
